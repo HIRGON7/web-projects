@@ -4,8 +4,13 @@ document.querySelectorAll('.toggle-btn').forEach(button => {
             this.classList.remove('off');
             this.classList.add('on');
             this.textContent = 'On';
-        } else {
+        } else if(this.classList.contains('on')){
             this.classList.remove('on');
+            this.classList.add('in-progress');
+            this.textContent = 'In-Progress';
+        }
+        else{
+            this.classList.remove('in-progress');
             this.classList.add('off');
             this.textContent = 'Off';
         }
