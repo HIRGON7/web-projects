@@ -42,7 +42,7 @@ h1 {
 .toggle-btn {
     padding: 5px 10px;
     cursor: pointer;
-    background-color: ##f44336;
+    background-color: #f44336;
     color: white;
     border: none;
     border-radius: 5px;
@@ -54,4 +54,7 @@ h1 {
 
 .toggle-btn.on {
     background-color: #4CAF50;
+}
+.toggle-btn.in-progress {
+    background-color: #f0c528;
 }
