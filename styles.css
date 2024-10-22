@@ -6,6 +6,11 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    background-image: url('whitegoo.png');
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+   background-position: center;
+   background-size: cover;
 }
 
 .container {
@@ -14,7 +19,14 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
+    background-image: url('whitegoo.png');
+    background-repeat: repeat;
+  background-attachment: fixed;
+   background-position: center;
+   background-size: cover;
+   opacity: 0.80;
 }
+
 
 h1 {
     margin-bottom: 20px;
