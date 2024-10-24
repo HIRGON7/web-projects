@@ -8,44 +8,77 @@ body {
     margin: 0;
     background-image: url('whitegoo.png');
     background-repeat: no-repeat;
-  background-attachment: fixed;
-   background-position: center;
-   background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.container h1 {
+    background-image: url('purplewaves.jpg');
+    background-size: cover;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.task-name {
+    background-image: url('purplewaves.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .container {
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 450px;
     text-align: center;
     background-image: url('whitegoo.png');
     background-repeat: repeat;
-  background-attachment: fixed;
-   background-position: center;
-   background-size: cover;
-   opacity: 0.80;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.80;
+    border: solid 1px rgb(250, 251, 253);
+    border-radius: 20px;
 }
-
 
 h1 {
     margin-bottom: 20px;
 }
 
 .todo .task {
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 10px 0;
 }
 
-.toggle-btn {
+.task-name {
+    flex-grow: 1; 
+    max-width: 200px; 
+    text-align: left; 
+    margin-right: 10px;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    padding: 5px 10px;
+}
+
+.toggle-btn, .remove-btn {
     padding: 5px 10px;
     cursor: pointer;
-    background-color: #f44336;
     color: white;
     border: none;
     border-radius: 5px;
+    width: 100px; 
+    text-align: center;
 }
 
 .toggle-btn.off {
@@ -55,6 +88,23 @@ h1 {
 .toggle-btn.on {
     background-color: #4CAF50;
 }
+
 .toggle-btn.in-progress {
-    background-color: #f0c528;
+    background-color: #f7c201;
+}
+
+#add-task-btn {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-image: url('blackgoo.jpg');
+    background-attachment: fixed;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.remove-btn {
+    background-color: #f44336; 
 }
