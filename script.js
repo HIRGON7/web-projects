@@ -1,4 +1,3 @@
-// Toggle functionality (already exists)
 document.querySelectorAll('.toggle-btn').forEach(button => {
     button.addEventListener('click', function() {
         if (this.classList.contains('off')) {
@@ -17,22 +16,21 @@ document.querySelectorAll('.toggle-btn').forEach(button => {
     });
 });
 
-// Functionality to add a new task
 document.getElementById('add-task-btn').addEventListener('click', function() {
-    const taskName = document.getElementById('new-task').value; // Get input value
+    const taskName = document.getElementById('new-task').value; 
     if (taskName) {
         const taskContainer = document.createElement('div');
         taskContainer.classList.add('task');
-        
+        taskContainer.setAttribute('draggable', 'true'); 
+
         const taskSpan = document.createElement('span');
         taskSpan.classList.add('task-name');
-        taskSpan.textContent = taskName; // Set task name
-        
+        taskSpan.textContent = taskName;
+    
         const taskButton = document.createElement('button');
         taskButton.classList.add('toggle-btn', 'off');
-        taskButton.textContent = 'Not Done'; // Set default status
+        taskButton.textContent = 'Not Done'; 
         
-        // Toggle status for new tasks
         taskButton.addEventListener('click', function() {
             if (this.classList.contains('off')) {
                 this.classList.remove('off');
@@ -49,30 +47,70 @@ document.getElementById('add-task-btn').addEventListener('click', function() {
             }
         });
         
-        // Add remove button
         const removeButton = document.createElement('button');
         removeButton.classList.add('remove-btn');
         removeButton.textContent = 'Remove';
         
-        // Remove task functionality
         removeButton.addEventListener('click', function() {
-            taskContainer.remove(); // Remove the task from the list
+            taskContainer.remove(); 
         });
 
-        // Append elements to the task container
+        
+        taskContainer.addEventListener('dragstart', function (e) {
+            e.target.classList.add('dragging');
+        });
+
+        taskContainer.addEventListener('dragend', function () {
+            taskContainer.classList.remove('dragging');
+        });
+
         taskContainer.appendChild(taskSpan);
         taskContainer.appendChild(taskButton);
-        taskContainer.appendChild(removeButton); // Add the remove button
-        document.querySelector('.todo').appendChild(taskContainer); // Add task to the list
+        taskContainer.appendChild(removeButton); 
+        document.querySelector('.todo').appendChild(taskContainer); 
         
-        document.getElementById('new-task').value = ''; // Clear input field
+        document.getElementById('new-task').value = ''; 
     }
 });
 
-// Add remove functionality to existing tasks
 document.querySelectorAll('.remove-btn').forEach(button => {
     button.addEventListener('click', function() {
-        this.parentElement.remove(); // Remove the parent task container
+        this.parentElement.remove(); 
     });
 });
+
+document.querySelectorAll('.task').forEach(task => {
+    task.addEventListener('dragstart', function (e) {
+        e.target.classList.add('dragging');
+    });
+
+    task.addEventListener('dragend', function () {
+        task.classList.remove('dragging');
+    });
+});
+
+document.querySelector('.todo').addEventListener('dragover', function (e) {
+    e.preventDefault();
+    const afterElement = getDragAfterElement(this, e.clientY);
+    const dragging = document.querySelector('.dragging');
+    if (afterElement == null) {
+        this.appendChild(dragging);
+    } else {
+        this.insertBefore(dragging, afterElement);
+    }
+});
+
+function getDragAfterElement(container, y) {
+    const draggableElements = [...container.querySelectorAll('.task:not(.dragging)')];
+
+    return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+            return { offset, element: child };
+        } else {
+            return closest;
+        }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
 
