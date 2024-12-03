@@ -108,3 +108,14 @@ h1 {
 .remove-btn {
     background-color: #f44336; 
 }
+.dragging{
+    opacity: .3;
+    background-color: cornflowerblue;
+    border: solid 1px wheat;
+
+}
+
+.task {
+    transition: all 0.5s ease;
+    cursor:pointer;
+}
