@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coffee Pixel Cafe ☕🟫</title>
+  <meta name="description" content="A cozy pixel-art coffee cafe. Learn about coffee and leave a message!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">☕ Coffee Pixel Cafe</div>
+    <nav class="nav">
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#comments">Comments</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="hero" class="card hero">
+      <div class="hero-art" aria-hidden="true">
+        <!-- Pixel Art Mug -->
+        <div class="pixel-mug">
+          <div class="steam s1">🫧</div>
+          <div class="steam s2">🫧</div>
+          <div class="steam s3">🫧</div>
+          <div class="cup"></div>
+          <div class="coffee"></div>
+          <div class="handle"></div>
+        </div>
+      </div>
+      <div class="hero-copy">
+        <h1>Welcome to the Coffee Pixel Cafe</h1>
+        <p>Low-res vibes, high-res flavor. Grab a cup of <span class="blink">☕</span> and press start!</p>
+        <a class="btn" href="#menu">▶ See Menu</a>
+      </div>
+    </section>
+
+    <section id="menu" class="card">
+      <h2>Menu</h2>
+      <div id="coffees" class="grid"></div>
+    </section>
+
+    <section id="about" class="card">
+      <h2>About Coffee</h2>
+      <p>
+        Coffee is a brewed beverage prepared from roasted coffee beans, the seeds of berries from the Coffea plant.
+        It powers quests, study sessions, and creative hacks. Strength varies from mellow to boss-level.<br/>
+        Fun facts: ☕ was discovered (legend says) by dancing goats in Ethiopia. Espresso means "pressed out".
+      </p>
+      <div class="emoji-row">🌱🫘🔥☕⚡</div>
+    </section>
+
+    <section id="comments" class="card">
+      <h2>Visitor Log</h2>
+      <form id="comment-form" class="comment-form">
+        <input name="name" placeholder="Your name" maxlength="40" />
+        <textarea name="message" placeholder="Leave a cozy note (max 500 chars)" maxlength="500" required></textarea>
+        <button class="btn" type="submit">Post ✍️</button>
+      </form>
+      <ul id="comment-list" class="comment-list"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>Made with lots of ☕ and pixels · 8-bit forever</div>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
